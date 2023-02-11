@@ -2,8 +2,25 @@
 
 ## 1-Hosts preparation 
 we will need two VMs
-* controller and network node: 6GB RAM, 4 cpu, 2 nics and 20G disk
-* compute node: 4GB RAM, 4 cpu, 2 nics and 20G disk
+### controller and network node
+*  6GB RAM, 4 cpu, 2 nics and 20G disk
+*  Hostname = Controller.mariamgad.local
+*  OS = CentOS-8
+*  IP address (eth0) = 192.168.206.129
+*  IP address (eth1) = 192.168.206.130
+*  GW = 192.168.206.2
+*  DNS = 8.8.8.8 , 192.168.206.2
+*  Search domain = mariamgad.local
+
+### compute node
+*  4GB RAM, 4 cpu, 2 nics and 20G disk
+*  Hostname = Controller.mariamgad.local
+*  OS = CentOS-8
+*  IP address (eth0) = 192.168.206.131
+*  IP address (eth1) = 192.168.206.132
+*  GW = 192.168.206.2
+*  DNS = 8.8.8.8 , 192.168.206.2
+*  Search domain = mariamgad.local
 
 ## 2- Hosts configuration
 this configuration will be done on both nodes
@@ -12,7 +29,7 @@ this configuration will be done on both nodes
 * install network-scripts `dnf install -y network-scripts`
 * enable network service `dnf install -y network-scripts`
 * disable selinux in `/etc/selinx/config` set `SELINUX=disabled`
-* in `/etc/hosts` add `192.168.206.129 controller.mariamgad.local controller` `192.168.206.131 compute.mariamgad.local compute`
+* in `/etc/hosts` add `192.168.206.129 controller.mariamgad.local controller` , `192.168.206.131 compute.mariamgad.local compute`
 
 * Install the release of openstack package `dnf config-manager --enable powertools` , `dnf install -y centos-release-openstack-yoga`
 *  Update the system `dnf -y update`
