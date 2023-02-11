@@ -1,4 +1,4 @@
-# openstack-installation-via-packstack
+# openstack-installation-via-packstack on multiple nodes
 
 ## 1-Hosts preparation 
 we will need two VMs
@@ -27,19 +27,18 @@ on controller node run
 
 ## 4- Generate and customize answer file 
 * `packstack --gen-answer-file=/root/answer.txt`
-* `vim /root/answer.txt`
-
-`CONFIG_CONTROLLER_HOST=192.168.206.129`
-`CONFIG_COMPUTE_HOSTS=192.168.206.131`
-`CONFIG_NETWORK_HOSTS=192.168.206.129`
-`CONFIG_PROVISION_DEMO=n`
-`CONFIG_CEILOMETER_INSTALL=n`
-`CONFIG_NEUTRON_L2_AGENT=openvswitch`
-`CONFIG_NEUTRON_ML2_MECHANISM_DRIVERS=openvswitch`
-`CONFIG_NEUTRON_ML2_TENANT_NETWORK_TYPES=vxlan`
-`CONFIG_NEUTRON_ML2_TYPE_DRIVERS=vxlan,flat`
-`CONFIG_NEUTRON_OVS_BRIDGE_MAPPINGS=extnet:br-ex`
-`CONFIG_NEUTRON_OVS_BRIDGE_IFACES=br-ex:eth0`
+#### in `/root/answer.txt` add
+* `CONFIG_CONTROLLER_HOST=192.168.206.129`
+* `CONFIG_COMPUTE_HOSTS=192.168.206.131`
+* `CONFIG_NETWORK_HOSTS=192.168.206.129`
+* `CONFIG_PROVISION_DEMO=n`
+* `CONFIG_CEILOMETER_INSTALL=n`
+* `CONFIG_NEUTRON_L2_AGENT=openvswitch`
+* `CONFIG_NEUTRON_ML2_MECHANISM_DRIVERS=openvswitch`
+* `CONFIG_NEUTRON_ML2_TENANT_NETWORK_TYPES=vxlan`
+* `CONFIG_NEUTRON_ML2_TYPE_DRIVERS=vxlan,flat`
+* `CONFIG_NEUTRON_OVS_BRIDGE_MAPPINGS=extnet:br-ex`
+* `CONFIG_NEUTRON_OVS_BRIDGE_IFACES=br-ex:eth0`
 
 ## 5- Validation
 ### Validate through dashboard
