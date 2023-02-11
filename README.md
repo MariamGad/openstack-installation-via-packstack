@@ -33,8 +33,6 @@ this configuration will be done on both nodes
 
 * Install the release of openstack package `dnf config-manager --enable powertools` , `dnf install -y centos-release-openstack-yoga`
 *  Update the system `dnf -y update`
-
-this step will be done only on the controller node
 * Install packstack installer `dnf install -y openstack-packstack`
 
 ## 3- Set passwordless authentication from controller node to compute node 
