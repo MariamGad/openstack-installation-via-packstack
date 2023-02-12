@@ -72,7 +72,8 @@ on controller node run
 ### Validate VM creation
 * Create a private network `neutron net-create Internal`
 * Create a subnet attached to the private network `openstack subnet create --network Internal --subnet-range 192.168.11.0/24 --dhcp Internal_subnet`
-* Create an external network, so that instances can be reachable through internet `openstack subnet create External_subnet --no-dhcp --allocation-pool start=192.168.206.140,end=192.168.206.150 --gateway 192.168.206.2 --network External --subnet-range 192.168.206.0/24`
+* Create an external network, so that instances can be reachable through internet `openstack network create External --provider-network-type flat --provider-physical-network extnet --external`
+* Create an extenal subnet `openstack subnet create External_subnet --no-dhcp --allocation-pool start=192.168.206.140,end=192.168.206.150 --gateway 192.168.206.2 --network External --subnet-range 192.168.206.0/24`
 * Create router to connect the external network and the internal network to each other `neutron router-create router`
 * Set its getway using the external network `neutron router-gateway-set router External`
 * Connect the private network to the router `neutron router-interface-add router Internal_subnet`
