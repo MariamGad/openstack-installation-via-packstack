@@ -27,7 +27,7 @@ this configuration will be done on both nodes
 * stop firewall `systemctl disable firewalld` , `systemctl stop firewalld`
 * stop network manager `systemctl disable NetworkManager` , `systemctl stop NetworkManager`
 * install network-scripts `dnf install -y network-scripts`
-* enable network service `systemctl enable network` , `system start network`
+* enable network service `systemctl enable network` , `systemctl start network`
 * disable selinux in `/etc/selinx/config` set `SELINUX=disabled`
 * in `/etc/hosts` add `192.168.206.129 controller.mariamgad.local controller` , `192.168.206.131 compute.mariamgad.local compute`
 
